@@ -1,0 +1,20 @@
+<div style="padding: 10px;">
+  <h3 style="font-family: 'Arial', sans-serif;text-align:center;">Chat App</h3>
+</div>
+<div> 
+  <% @users.each do |user| %>
+    <div class="user-card" style="padding: 10px;"> 
+      <p style="text-align:center; font-weight: 600;">
+        <%= user.name %> 
+        <%= link_to "View", show_user_path(user), style: "color: #007bff; text-decoration: none;" %>
+      </p> 
+    </div>
+  <% end %>
+<p style ="text-align:center;">
+    <%= link_to "Add New User", new_path, style: "color: blue; text-decoration: none;text-align:center;padding: 10px 18px; border: 2px solid black; border-radius: 20px; font-weight: 600;" %> 
+</p>
+
+<p style ="margin-top:40px; text-align:center;">
+  <%= link_to "Main Menu", root_path,style: "color: blue; text-decoration: none;text-align:center;padding: 10px 18px; border: 2px solid black; border-radius: 20px; font-weight: 600;" %>
+</p>
+</div>

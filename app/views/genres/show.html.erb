@@ -1,0 +1,20 @@
+<div style="margin-bottom: 20px; padding: 15px; "> 
+    <h3 style="margin-top: 15px; font-size: 18px;"> Books Associated with this Genre</h3> 
+        <h3 style=" padding: 8px; ">Genre:</h3>
+        <p style="padding: 8px; ">
+            <%= @genre.name %>
+        </p>
+        <h3 style=" padding: 8px; ">Book Names:</h3>
+        <p>
+             <% if @books.any? %>
+                <% @books.each do |book| %>
+                    <p style="padding: 8px;"><%= book.name %></p>
+                <% end %>
+            <% else %>
+                <p style="padding: 8px;">No Book found</p>
+            <% end %>
+        </p> 
+        <p><%= link_to "Delete Genre", genre_path ,data: { "turbo-method": :delete, turbo_confirm: 'Are you sure?' }, style: "color: #0056B3; text-decoration: none;" %></p>
+        <p><%= link_to "Edit Genre", edit_genre_path, style: "color: #0056b3; text-decoration: none;" %></p>
+        <p><%= link_to "Go Back", genres_path, style: "color: blue; text-decoration: none;" %></p>
+</div>

@@ -1,0 +1,23 @@
+<h2>Send Message</h2>
+
+<%= form_with(model:@message, url: create_message_path) do |form| %>
+
+ <div>
+    <%= form.field :sender_id, value: @user %> 
+    <%= form.field :receiver_id, value: @message.id %>
+  </div> 
+  <div>
+   <%= form.label :receiver_id%>
+    <br>
+    <%= form.text_field :receiver_id %>
+    <br>
+    <br>
+    <%= form.label :write_your_message%>
+    <br>
+    <%= form.text_area :message %>
+  </div>
+  <br>
+  <%= form.submit "Send" %>
+    <p><%= link_to "Go Back", users_path %></p>
+
+<% end %>

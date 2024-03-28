@@ -1,0 +1,56 @@
+<div style="margin-bottom: 20px; padding: 15px; "> 
+    <h3 style="margin-top: 15px; font-size: 18px;text-align:center;">Author Details</h3> 
+
+    <%
+=begin%>
+ <% if @biography %> 
+<%
+=end%>
+     <p style="text-align:center;"><%= link_to "Edit Author", edit_author_path, style: "color: blue; text-decoration: none;" %></p>
+     <p style="text-align:center;"><%= link_to "Edit Biography", edit_biography_path, style: "color: blue; text-decoration: none;" %></p>
+<p style="text-align:center;"><%= link_to "Delete Auhtor", author_path,data: { "turbo-method": :delete, turbo_confirm: 'Are you sure?' }, style: "color: blue; text-decoration: none;" %></p>
+
+
+        <p style="text-align:center; margin-bottom: 10px; padding: 8px; border-radius: 3px;">
+                Name: <%= @author.name %> | Email: <%= @author.email %>
+        </p>
+         
+        <p style="text-align:center; margin-bottom: 10px; padding: 8px; border-radius: 3px;">
+                CNIC: <%= @biography.cnic %>
+        </p>
+        <p style="text-align:center; margin-bottom: 10px; padding: 8px; border-radius: 3px;">
+                Age: <%= @biography.age %> | Date of Birth: <%= @biography.dob %>
+        </p>
+
+        <p style="text-align:center; margin-bottom: 10px; padding: 8px; border-radius: 3px;">
+                Content: <%= @biography.bio %>
+        </p>
+
+
+
+    <%
+=begin%>
+ <% else %>
+        <p style="text-align:center;">No biography available.</p>
+        <p style="text-align:center;"><%= link_to "Add Biography", biography_path, style: "color: blue; text-decoration: none;" %></p>
+    <% end %> 
+<%
+=end%>
+
+ <h3 style="margin-top: 15px; font-size: 18px;text-align:center;">Author Books</h3> 
+
+        <% if @books.any?%>
+                <% @books.each do |book| %>
+                        <div class="user-card" style="padding: 10px;"> 
+                                <p style="text-align:center;">Book id: <%= book.id %></p>
+                                <p style="text-align:center;">Book Name: <%= book.name %></p>
+                                <p style="text-align:center;">Description: <%= book.description %></p>
+                                <p style="text-align:center;>Price: <%= book.price %></p>
+                        </div>
+                <% end %>
+        <% else %>
+                <p style="text-align:center;">No Books available for this Author.</p>
+        <% end %> 
+
+    <p style="text-align:center;"><%= link_to "Go Back", authors_path, style: "color: blue; text-decoration: none;" %></p>
+</div>

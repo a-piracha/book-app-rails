@@ -1,0 +1,26 @@
+<div style="padding: 10px;">
+  <h3 style="font-family: 'Arial', sans-serif;text-align:center;">Books Authors</h3>
+</div>
+<div> 
+  <% @authors.each do |author| %>
+    <div class="user-card" style="padding: 10px;"> 
+      <p style="text-align:center;">
+        Name: <%= author.name %> 
+      </p> 
+       
+      <p style="text-align:center;">
+        Email: <%= author.email %> 
+      </p> 
+      
+       <p style="text-align:center;">
+        <%= link_to "Author Details", author_path(author), style: "color: #007bff; text-decoration: none;" %>
+      </p> 
+    </div>
+  <% end %>
+<p style ="text-align:center;">
+    <%= link_to "Add New Author", new_author_path, style: "color: blue; text-decoration: none;text-align:center;padding: 10px 18px; border: 2px solid black; border-radius: 20px; font-weight: 600;" %> 
+</p>
+<p style ="margin-top:40px; text-align:center;">
+  <%= link_to "Main Menu", root_path,style: "color: blue; text-decoration: none;text-align:center;padding: 10px 18px; border: 2px solid black; border-radius: 20px; font-weight: 600;" %>
+</p>
+</div>

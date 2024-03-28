@@ -1,0 +1,20 @@
+<%= form_with(model: @genre) do |form| %>
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :genre_name, style: "font-weight: bold; display: block;" %>
+            <%= form.text_field :name, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+
+
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :books, style: "font-weight: bold; display: block;" %>
+            <% Book.all.each do |book| %>
+            <%= form.check_box :book_id, { multiple: true, checked: @genre.books.ids.include?(book.id) }, book.id, nil %>
+                <%= book.name %>
+                <br>
+            <% end %>
+        </div> 
+
+
+        <p><%= form.submit yield(:button_text), style: "background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;" %></p>
+        <p><%= link_to "Go Back", genres_path, style: "color: #0056b3; text-decoration: none;" %></p>
+<% end %>

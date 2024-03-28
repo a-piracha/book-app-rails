@@ -1,0 +1,42 @@
+<div style="margin-bottom: 10px; padding: 15px; "> 
+    <h3 style="margin-top: 5px; font-size: 18px;">
+    Your Book </h3> 
+
+        <p style="padding: 4px;">
+            <strong>Name:</strong> <%= @book.name %>
+        </p>
+        <p style="padding: 4px;">
+            <strong>Description:</strong> <%= @book.description %>
+        </p>
+        <p style="padding: 4px;">
+            <strong>Price:</strong> <%= @book.price %>
+        </p>
+        <p>           
+            <% if @genres.any? %>
+                <p style="padding: 4px;">
+                <strong>Genre:</strong> 
+                <% @genres.each do |genre| %>
+                    <%= genre.name %> |
+                <% end %>
+                </p>
+            <% else %>
+                <p style="padding: 4px;"><strong>No Genre found with this book</strong></p>
+            <% end %>
+        </p>
+
+        <p style="padding: 4px;">
+            <strong>Author Name:</strong> <%= @author_name %>
+        </p>
+
+
+        <% if @publisher_name %>
+            <p style="padding: 4px;">
+                <strong>Publisher Name:</strong> <%= @publisher_name %>
+            </p>
+        <% else %>
+            <p style="padding: 4px;"><strong>No Publisher found with this book</strong></p>
+        <% end %>
+        <p><%= link_to "Delete Book", book_path(@book) ,data: { "turbo-method": :delete, turbo_confirm: 'Are you sure?' }, style: "color: #0056B3; text-decoration: none;" %></p>
+        <p><%= link_to "Edit Book Details", edit_book_path, style: "color: #0056b3; text-decoration: none;" %></p>
+        <p><%= link_to "Go Back", books_path, style: "color: blue; text-decoration: none;" %></p>
+</div>

@@ -1,0 +1,24 @@
+<div style="padding: 10px;">
+  <h3 style="font-family: 'Arial', sans-serif;text-align:center;">All Genres</h3>
+</div>
+<div> 
+  <% @genres.each do |genre| %>
+    <div class="user-card"> 
+      <p style="text-align:center;">
+          Genre: <%= genre.name %> 
+      </p>
+       <p style ="text-align:center;">
+          <%= link_to "View Genre Details", genre_path(genre), style: "color: blue; text-decoration: none;text-align:center;"%>
+        </p>
+    </div>
+  <% end %>
+
+<p style ="text-align:center;padding: 10px;">
+  <%= link_to "Add New Genre", new_genre_path, style: "color: blue; text-decoration: none;text-align:center;padding: 10px 18px; border: 2px solid black; border-radius: 20px; font-weight: 600;"%>
+</p>
+
+<p style ="margin-top:40px; text-align:center;">
+  <%= link_to "Main Menu", root_path,style: "color: blue; text-decoration: none;text-align:center;padding: 10px 18px; border: 2px solid black; border-radius: 20px; font-weight: 600;" %>
+</p>
+
+</div>

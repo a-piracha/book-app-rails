@@ -1,0 +1,31 @@
+<div style="padding: 10px;">
+  <h3 style="font-family: 'Arial', sans-serif;text-align:center;">Publisher</h3>
+</div>
+<div> 
+  <% @publishers.each do |publisher| %>
+    <div class="user-card" style="padding: 10px;"> 
+      <p style="text-align:center;">
+        Name: <%= publisher.name %> 
+      </p> 
+        <p style="text-align:center;">
+        Address: <%= publisher.address %> 
+      </p>
+      <p style="text-align:center;">
+        <%= link_to "Edit Data", edit_publisher_path(publisher), style: "color: #0056b3; text-decoration: none;" %>
+      </p>
+
+      <p style="text-align:center;">
+        <%= link_to "Delete Publisher", publisher_path(publisher) ,data: { "turbo-method": :delete, turbo_confirm: 'Are you sure?' }, style: "color: #0056b3; text-decoration: none;" %>
+      </p> 
+
+    </div>
+  <% end %>
+<p style ="text-align:center;">
+    <%= link_to "Add New Publisher", new_publisher_path, style: "color: blue; text-decoration: none;text-align:center;padding: 10px 18px; border: 2px solid black; border-radius: 20px; font-weight: 600;" %> 
+</p>
+
+<p style ="margin-top:40px; text-align:center;">
+  <%= link_to "Main Menu", root_path,style: "color: blue; text-decoration: none;text-align:center;padding: 10px 18px; border: 2px solid black; border-radius: 20px; font-weight: 600;" %>
+</p>
+
+</div>

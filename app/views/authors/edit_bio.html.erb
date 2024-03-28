@@ -1,0 +1,36 @@
+<div style="margin-bottom: 20px; padding: 20px; border-radius: 8px; "> 
+    <h3 style="margin-top: 0; margin-bottom: 15px;">Edit Biography</h3> 
+    <%= form_with(model: @biography, url: update_biography_path) do |form| %>
+
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :age, style: "font-weight: bold; display: block;" %>
+            <%= form.number_field :age, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+
+       <div style="margin-bottom: 12px;">  
+            <%= form.label :cnic, style: "font-weight: bold; display: block;" %>
+            <%= form.text_field :cnic, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+        
+        <div style="margin-bottom: 12px;">  
+            <%= form.label :bio, style: "font-weight: bold; display: block;" %>
+            <%= form.text_field :bio, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+
+        <div style="margin-bottom: 12px;">  
+            <%= form.label :Date_of_birth, style: "font-weight: bold; display: block;" %>
+            <%= form.date_field :dob, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+
+        <p>
+        <%= form.submit "Edit Biography", style: "background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;" %>  
+        </p>
+
+
+        <p>
+        <%= link_to "Go Back", author_path, style: "color: #0056b3; text-decoration: none;" %>
+        </p>
+        <p class="notice" style="color: #dc3545; margin-top: 10px;"><%= notice %></p> 
+    <% end %>
+    <p></p> 
+</div>

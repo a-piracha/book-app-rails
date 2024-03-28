@@ -1,0 +1,36 @@
+  <%= form_with(model: @book) do |form| %>
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :name, style: "font-weight: bold; display: block;" %>
+            <%= form.text_field :name, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+       <div style="margin-bottom: 12px;">  
+            <%= form.label :description, style: "font-weight: bold; display: block;" %>
+            <%= form.text_field :description, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :price, style: "font-weight: bold; display: block;" %>
+            <%= form.number_field :price, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :author_name, style: "font-weight: bold; display: block;" %>
+            <%= form.select :author_id, Author.all.collect { |p| [ p.name, p.id ] }, { include_blank: 'Select an Author', disabled: 'Select an Author' }, style:"width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :Publisher_name, style: "font-weight: bold; display: block;" %>
+            <%= form.select :publisher_id, Publisher.all.collect { |p| [ p.name, p.id ] }, { include_blank: 'Select a Publisher', disabled: 'Select a Publisher' } ,  style:"width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :genres, style: "font-weight: bold; display: block;" %>
+            <% Genre.all.each do |genre| %>
+                <%= form.check_box :genre_id, { multiple: true, checked: @book.genres.ids.include?(genre.id) }, genre.id, nil %>
+                <%= genre.name %>
+                <br>
+            <% end %>
+        </div>
+
+        <p><%= form.submit yield(:button_text), style: "background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;" %></p>
+        <p><%= link_to "Go Back", books_path, style: "color: #0056b3; text-decoration: none;" %></p>
+        <p class="notice" style="color: #dc3545; margin-top: 10px;"><%= notice %></p> 
+    <% end %>

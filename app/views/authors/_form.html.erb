@@ -1,0 +1,36 @@
+ <%= form_with(model: @author) do |form| %>
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :name, style: "font-weight: bold; display: block;" %>
+            <%= form.text_field :name, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+       <div style="margin-bottom: 12px;">  
+            <%= form.label :email, style: "font-weight: bold; display: block;" %>
+            <%= form.text_field :email, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+        <%= form.fields_for :biography do |f| %>
+            <div style="margin-bottom: 12px;"> 
+                <%= f.label :age, style: "font-weight: bold; display: block;" %>
+                <%= f.number_field :age, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+            </div>
+
+            <div style="margin-bottom: 12px;">  
+                <%= f.label :cnic, style: "font-weight: bold; display: block;" %>
+                <%= f.text_field :cnic, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+            </div>
+        
+            <div style="margin-bottom: 12px;">  
+                <%= f.label :bio, style: "font-weight: bold; display: block;" %>
+                <%= f.text_field :bio, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+            </div>
+
+            <div style="margin-bottom: 12px;">  
+                <%= f.label :Date_of_birth, style: "font-weight: bold; display: block;" %>
+                <%= f.date_field :dob, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+            </div>
+        
+        <% end %>
+        <%= form.submit yield(:button_text), style: "background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;" %>  
+        
+        <%= link_to "Go Back", authors_path, style: "color: #0056b3; text-decoration: none;" %>
+        <p class="notice" style="text-align:center;color: #dc3545; margin-top: 10px;"><%= notice %></p> 
+    <% end %>

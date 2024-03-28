@@ -1,0 +1,18 @@
+<div style="margin-bottom: 20px; padding: 20px; border-radius: 8px; "> 
+    <h3 style="margin-top: 0; margin-bottom: 15px;">Add User</h3> 
+    <%= form_with(model: @user, url: create_user_path) do |form| %>
+        <div style="margin-bottom: 12px;"> 
+            <%= form.label :name, style: "font-weight: bold; display: block;" %>
+            <%= form.text_field :name, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+       <div style="margin-bottom: 12px;">  
+            <%= form.label :email, style: "font-weight: bold; display: block;" %>
+            <%= form.text_field :email, style: "width: 250px; padding: 10px; border: 1px solid #000000; border-radius: 3px;" %>
+        </div>
+        
+        <%= form.submit "Create User", style: "background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;" %>  
+        <%= link_to "Go Back", chat_app_path, style: "color: #0056b3; text-decoration: none;" %>
+        <p class="notice" style="color: #dc3545; margin-top: 10px;"><%= notice %></p> 
+    <% end %>
+    <p></p> 
+</div>
